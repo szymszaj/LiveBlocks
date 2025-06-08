@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import {
   Sidebar,
@@ -10,16 +9,16 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
-import { 
-  MousePointer, 
-  Type, 
-  Square, 
-  ToggleLeft, 
+import {
+  MousePointer,
+  Type,
+  Square,
+  ToggleLeft,
   Menu,
   Star,
   Bell,
   Calendar,
-  Loader
+  Loader,
 } from "lucide-react";
 import { componentConfigs } from "@/config/components";
 import { motion } from "framer-motion";
@@ -40,8 +39,11 @@ const iconMap = {
   Loader,
 };
 
-export function ComponentSidebar({ selectedComponent, onSelectComponent }: ComponentSidebarProps) {
-  const categories = [...new Set(componentConfigs.map(c => c.category))];
+export function ComponentSidebar({
+  selectedComponent,
+  onSelectComponent,
+}: ComponentSidebarProps) {
+  const categories = [...new Set(componentConfigs.map((c) => c.category))];
 
   return (
     <Sidebar className="w-64 border-r bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm">
@@ -60,27 +62,32 @@ export function ComponentSidebar({ selectedComponent, onSelectComponent }: Compo
               <SidebarGroupContent>
                 <SidebarMenu>
                   {componentConfigs
-                    .filter(comp => comp.category === category)
+                    .filter((comp) => comp.category === category)
                     .map((component, index) => {
-                      const IconComponent = iconMap[component.icon as keyof typeof iconMap] || Star;
+                      const IconComponent =
+                        iconMap[component.icon as keyof typeof iconMap] || Star;
                       return (
                         <motion.div
                           key={component.id}
                           initial={{ opacity: 0, y: 10 }}
                           animate={{ opacity: 1, y: 0 }}
-                          transition={{ delay: (categoryIndex * 0.1) + (index * 0.05) }}
+                          transition={{
+                            delay: categoryIndex * 0.1 + index * 0.05,
+                          }}
                         >
                           <SidebarMenuItem>
-                            <SidebarMenuButton 
+                            <SidebarMenuButton
                               onClick={() => onSelectComponent(component.id)}
                               className={`w-full justify-start p-3 rounded-lg transition-all ${
-                                selectedComponent === component.id 
-                                  ? "bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/30 dark:to-purple-900/30 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-700" 
+                                selectedComponent === component.id
+                                  ? "bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/30 dark:to-purple-900/30 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-700"
                                   : "hover:bg-slate-50 dark:hover:bg-slate-800"
                               }`}
                             >
                               <IconComponent className="h-4 w-4 mr-3" />
-                              <span className="font-medium">{component.name}</span>
+                              <span className="font-medium">
+                                {component.name}
+                              </span>
                               {component.isCustom && (
                                 <span className="ml-auto text-xs bg-purple-100 dark:bg-purple-900 text-purple-700 dark:text-purple-300 px-1 rounded">
                                   New

@@ -1,4 +1,3 @@
-
 export interface ComponentConfig {
   id: string;
   name: string;
@@ -18,8 +17,8 @@ export const componentConfigs: ComponentConfig[] = [
       variant: "default",
       size: "default",
       disabled: false,
-      children: "Click me"
-    }
+      children: "Click me",
+    },
   },
   {
     id: "input",
@@ -29,8 +28,8 @@ export const componentConfigs: ComponentConfig[] = [
     props: {
       placeholder: "Enter text...",
       disabled: false,
-      type: "text"
-    }
+      type: "text",
+    },
   },
   {
     id: "animatedcard",
@@ -42,9 +41,9 @@ export const componentConfigs: ComponentConfig[] = [
       description: "This card has cool animations",
       content: "Watch me move and dance!",
       variant: "hover",
-      delay: 0
+      delay: 0,
     },
-    isCustom: true
+    isCustom: true,
   },
   {
     id: "card",
@@ -54,8 +53,8 @@ export const componentConfigs: ComponentConfig[] = [
     props: {
       title: "Card Title",
       description: "Card description",
-      content: "Card content goes here"
-    }
+      content: "Card content goes here",
+    },
   },
   {
     id: "badge",
@@ -64,8 +63,8 @@ export const componentConfigs: ComponentConfig[] = [
     category: "Basic",
     props: {
       variant: "default",
-      children: "Badge"
-    }
+      children: "Badge",
+    },
   },
   {
     id: "switch",
@@ -75,8 +74,8 @@ export const componentConfigs: ComponentConfig[] = [
     props: {
       disabled: false,
       checked: false,
-      label: "Toggle me"
-    }
+      label: "Toggle me",
+    },
   },
   {
     id: "alert",
@@ -84,23 +83,23 @@ export const componentConfigs: ComponentConfig[] = [
     icon: "AlertCircle",
     category: "Basic",
     props: {
-      message: "This is an alert message"
-    }
+      message: "This is an alert message",
+    },
   },
   {
     id: "calendar",
     name: "Calendar",
     icon: "Calendar",
     category: "Basic",
-    props: {}
+    props: {},
   },
   {
     id: "skeleton",
     name: "Skeleton",
     icon: "Loader",
     category: "Basic",
-    props: {}
-  }
+    props: {},
+  },
 ];
 
 export function addCustomComponent(config: ComponentConfig) {

@@ -1,10 +1,15 @@
-
 import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Switch } from "@/components/ui/switch";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { Sliders } from "lucide-react";
 
@@ -14,7 +19,11 @@ interface PropsPanelProps {
   onPropsChange: (newProps: any) => void;
 }
 
-export function PropsPanel({ componentType, props, onPropsChange }: PropsPanelProps) {
+export function PropsPanel({
+  componentType,
+  props,
+  onPropsChange,
+}: PropsPanelProps) {
   const updateProp = (key: string, value: any) => {
     onPropsChange({ ...props, [key]: value });
   };
@@ -26,7 +35,10 @@ export function PropsPanel({ componentType, props, onPropsChange }: PropsPanelPr
           <>
             <div className="space-y-2">
               <Label htmlFor="variant">Variant</Label>
-              <Select value={props.variant} onValueChange={(value) => updateProp("variant", value)}>
+              <Select
+                value={props.variant}
+                onValueChange={(value) => updateProp("variant", value)}
+              >
                 <SelectTrigger>
                   <SelectValue />
                 </SelectTrigger>
@@ -40,10 +52,13 @@ export function PropsPanel({ componentType, props, onPropsChange }: PropsPanelPr
                 </SelectContent>
               </Select>
             </div>
-            
+
             <div className="space-y-2">
               <Label htmlFor="size">Size</Label>
-              <Select value={props.size} onValueChange={(value) => updateProp("size", value)}>
+              <Select
+                value={props.size}
+                onValueChange={(value) => updateProp("size", value)}
+              >
                 <SelectTrigger>
                   <SelectValue />
                 </SelectTrigger>
@@ -55,18 +70,18 @@ export function PropsPanel({ componentType, props, onPropsChange }: PropsPanelPr
                 </SelectContent>
               </Select>
             </div>
-            
+
             <div className="space-y-2">
               <Label htmlFor="children">Text</Label>
-              <Input 
+              <Input
                 id="children"
                 value={props.children}
                 onChange={(e) => updateProp("children", e.target.value)}
               />
             </div>
-            
+
             <div className="flex items-center space-x-2">
-              <Switch 
+              <Switch
                 checked={props.disabled}
                 onCheckedChange={(checked) => updateProp("disabled", checked)}
               />
@@ -74,22 +89,25 @@ export function PropsPanel({ componentType, props, onPropsChange }: PropsPanelPr
             </div>
           </>
         );
-      
+
       case "input":
         return (
           <>
             <div className="space-y-2">
               <Label htmlFor="placeholder">Placeholder</Label>
-              <Input 
+              <Input
                 id="placeholder"
                 value={props.placeholder || ""}
                 onChange={(e) => updateProp("placeholder", e.target.value)}
               />
             </div>
-            
+
             <div className="space-y-2">
               <Label htmlFor="type">Type</Label>
-              <Select value={props.type || "text"} onValueChange={(value) => updateProp("type", value)}>
+              <Select
+                value={props.type || "text"}
+                onValueChange={(value) => updateProp("type", value)}
+              >
                 <SelectTrigger>
                   <SelectValue />
                 </SelectTrigger>
@@ -101,9 +119,9 @@ export function PropsPanel({ componentType, props, onPropsChange }: PropsPanelPr
                 </SelectContent>
               </Select>
             </div>
-            
+
             <div className="flex items-center space-x-2">
-              <Switch 
+              <Switch
                 checked={props.disabled || false}
                 onCheckedChange={(checked) => updateProp("disabled", checked)}
               />
@@ -111,31 +129,31 @@ export function PropsPanel({ componentType, props, onPropsChange }: PropsPanelPr
             </div>
           </>
         );
-      
+
       case "card":
         return (
           <>
             <div className="space-y-2">
               <Label htmlFor="title">Title</Label>
-              <Input 
+              <Input
                 id="title"
                 value={props.title || "Card Title"}
                 onChange={(e) => updateProp("title", e.target.value)}
               />
             </div>
-            
+
             <div className="space-y-2">
               <Label htmlFor="description">Description</Label>
-              <Input 
+              <Input
                 id="description"
                 value={props.description || "Card description"}
                 onChange={(e) => updateProp("description", e.target.value)}
               />
             </div>
-            
+
             <div className="space-y-2">
               <Label htmlFor="content">Content</Label>
-              <Textarea 
+              <Textarea
                 id="content"
                 value={props.content || "Card content goes here..."}
                 onChange={(e) => updateProp("content", e.target.value)}
@@ -143,13 +161,16 @@ export function PropsPanel({ componentType, props, onPropsChange }: PropsPanelPr
             </div>
           </>
         );
-      
+
       case "badge":
         return (
           <>
             <div className="space-y-2">
               <Label htmlFor="variant">Variant</Label>
-              <Select value={props.variant || "default"} onValueChange={(value) => updateProp("variant", value)}>
+              <Select
+                value={props.variant || "default"}
+                onValueChange={(value) => updateProp("variant", value)}
+              >
                 <SelectTrigger>
                   <SelectValue />
                 </SelectTrigger>
@@ -161,10 +182,10 @@ export function PropsPanel({ componentType, props, onPropsChange }: PropsPanelPr
                 </SelectContent>
               </Select>
             </div>
-            
+
             <div className="space-y-2">
               <Label htmlFor="children">Text</Label>
-              <Input 
+              <Input
                 id="children"
                 value={props.children || "Badge"}
                 onChange={(e) => updateProp("children", e.target.value)}
@@ -172,29 +193,29 @@ export function PropsPanel({ componentType, props, onPropsChange }: PropsPanelPr
             </div>
           </>
         );
-      
+
       case "switch":
         return (
           <>
             <div className="space-y-2">
               <Label htmlFor="label">Label</Label>
-              <Input 
+              <Input
                 id="label"
                 value={props.label || "Enable notifications"}
                 onChange={(e) => updateProp("label", e.target.value)}
               />
             </div>
-            
+
             <div className="flex items-center space-x-2">
-              <Switch 
+              <Switch
                 checked={props.checked || false}
                 onCheckedChange={(checked) => updateProp("checked", checked)}
               />
               <Label>Checked by default</Label>
             </div>
-            
+
             <div className="flex items-center space-x-2">
-              <Switch 
+              <Switch
                 checked={props.disabled || false}
                 onCheckedChange={(checked) => updateProp("disabled", checked)}
               />
@@ -202,13 +223,13 @@ export function PropsPanel({ componentType, props, onPropsChange }: PropsPanelPr
             </div>
           </>
         );
-      
+
       case "alert":
         return (
           <>
             <div className="space-y-2">
               <Label htmlFor="message">Message</Label>
-              <Textarea 
+              <Textarea
                 id="message"
                 value={props.message || "This is an alert message."}
                 onChange={(e) => updateProp("message", e.target.value)}
@@ -216,9 +237,13 @@ export function PropsPanel({ componentType, props, onPropsChange }: PropsPanelPr
             </div>
           </>
         );
-      
+
       default:
-        return <p className="text-muted-foreground">No props available for this component.</p>;
+        return (
+          <p className="text-muted-foreground">
+            No props available for this component.
+          </p>
+        );
     }
   };
 
@@ -230,9 +255,7 @@ export function PropsPanel({ componentType, props, onPropsChange }: PropsPanelPr
           Props Panel
         </CardTitle>
       </CardHeader>
-      <CardContent className="space-y-4">
-        {renderControls()}
-      </CardContent>
+      <CardContent className="space-y-4">{renderControls()}</CardContent>
     </Card>
   );
 }

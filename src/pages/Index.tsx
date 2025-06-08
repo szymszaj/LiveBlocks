@@ -112,7 +112,6 @@ const Index = () => {
           />
 
           <main className="flex-1 flex">
-            {/* Preview Area */}
             <div className="flex-1 p-6">
               <motion.div
                 className="bg-slate-800 dark:bg-slate-900 rounded-xl shadow-lg border border-slate-700 dark:border-slate-800 h-full"
@@ -141,7 +140,6 @@ const Index = () => {
               </motion.div>
             </div>
 
-            {/* Props Panel */}
             <div className="w-80 p-6">
               <PropsPanel
                 componentType={selectedComponent}

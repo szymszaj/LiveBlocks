@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 
 interface WindEffectProps {
@@ -33,8 +32,7 @@ export function WindEffect({ isActive }: WindEffectProps) {
           }}
         />
       ))}
-      
-      {/* Większe cząstki */}
+
       {Array.from({ length: 8 }).map((_, i) => (
         <motion.div
           key={`large-${i}`}
