@@ -1,0 +1,195 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 210 40% 3%;
+    --foreground: 0 0% 95%;
+
+    --card: 210 30% 8%;
+    --card-foreground: 0 0% 95%;
+
+    --popover: 210 30% 8%;
+    --popover-foreground: 0 0% 95%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 210 30% 15%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 210 30% 15%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 210 30% 15%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 210 30% 18%;
+    --input: 210 30% 18%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 210 40% 5%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 210 30% 12%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 210 30% 12%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    overflow-x: hidden;
+  }
+
+  /* Prevent layout shifts and overlapping */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Container improvements */
+  .container {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+@layer components {
+  /* Layout utilities */
+  .layout-container {
+    @apply min-h-screen flex flex-col;
+  }
+
+  .main-content {
+    @apply flex-1 flex overflow-hidden;
+  }
+
+  .sidebar-container {
+    @apply flex-shrink-0 w-80 border-r bg-background;
+  }
+
+  .preview-container {
+    @apply flex-1 flex flex-col min-w-0;
+  }
+
+  .props-container {
+    @apply w-80 flex-shrink-0 border-l bg-background;
+  }
+
+  /* Component spacing */
+  .component-preview {
+    @apply p-8 min-h-96 flex items-center justify-center;
+    @apply bg-gradient-to-br from-slate-900 to-purple-900;
+    @apply dark:from-slate-950 dark:to-blue-950;
+    overflow: visible;
+    position: relative;
+  }
+
+  .component-wrapper {
+    @apply relative z-10 flex items-center justify-center;
+    min-height: 200px;
+    width: 100%;
+  }
+
+  /* Prevent text overflow */
+  .text-container {
+    @apply break-words overflow-wrap-anywhere;
+  }
+
+  /* Card improvements */
+  .preview-card {
+    @apply bg-slate-800 dark:bg-slate-900 rounded-xl shadow-lg;
+    @apply border border-slate-700 dark:border-slate-800;
+    @apply overflow-hidden;
+  }
+
+  /* Animation safe zones */
+  .animation-safe-zone {
+    @apply relative;
+    min-height: 300px;
+    padding: 2rem;
+    overflow: visible;
+  }
+}
+
+@layer utilities {
+  /* Z-index utilities */
+  .z-header {
+    z-index: 40;
+  }
+  .z-sidebar {
+    z-index: 30;
+  }
+  .z-wind {
+    z-index: 50;
+  }
+  .z-component {
+    z-index: 10;
+  }
+
+  /* Overflow utilities */
+  .overflow-safe {
+    overflow: visible;
+    contain: none;
+  }
+
+  /* Layout utilities */
+  .full-viewport {
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
+}
